@@ -1,158 +1,136 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>My Portfolio — [Your Name]</title>
-  <meta name="description" content="A short site about my learning, projects, and interests." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Learning Journey | [Your Name]</title>
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 </head>
 <body>
+  <!-- Header -->
   <header class="site-header">
     <div class="container header-grid">
-      <a class="logo" href="index.html">[William Kwon]</a>
-      <nav>
-        <ul class="nav">
-          <li><a href="index.html" aria-current="page">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+      <h1 class="logo">My Learning Journey</h1>
+      <button id="themeToggle" class="theme-toggle">🌙</button>
     </div>
   </header>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <h1>Hello — I’m <span class="accent">[Your Name]</span></h1>
-          <p class="lead">
-            I build things, learn continuously, and share my work. This site highlights my learning journey,
-            projects, and interests. Pick one: <strong>learning</strong>, <strong>portfolio</strong>,
-            <strong>tech</strong>, or <strong>hobby</strong> — adapt the content below to your chosen topic.
-          </p>
-          <p class="cta-row">
-            <a class="btn" href="projects.html">View Projects</a>
-            <a class="btn ghost" href="about.html">Read My Story</a>
-          </p>
-        </div>
+  <!-- Hero Section -->
+  <section class="hero container">
+    <h2>Hello, I’m <span class="accent">[Your Name]</span> 👋</h2>
+    <p class="lead">
+      Welcome to my website! This page documents my personal and professional learning experiences — from mastering new technologies to developing essential life and career skills.
+    </p>
+  </section>
 
-        <figure class="hero-figure" aria-hidden="true">
-          <!-- Replace with a real image or SVG -->
-          <svg width="260" height="160" viewBox="0 0 260 160" role="img" aria-label="illustration">
-            <rect width="260" height="160" rx="12" fill="#e9eef8"></rect>
-            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#5b6b95" font-size="16">Replace with your image</text>
-          </svg>
-        </figure>
+  <!-- Learning Journey -->
+  <section class="container journey">
+    <h2>My Learning Journey</h2>
+    <p>
+      I’ve always believed learning never stops. Over the past few years, I’ve explored different areas that shaped how I think, create, and solve problems.
+    </p>
+    <div class="timeline">
+      <div class="event">
+        <h3>📘 2023 — Starting My Foundation</h3>
+        <p>
+          I began focusing on self-learning through online platforms, covering the basics of programming, data analysis, and digital tools.
+        </p>
       </div>
-    </section>
-
-    <!-- Quick Highlights (adapt to topic) -->
-    <section class="highlights container">
-      <article class="card">
-        <h3>Recent Learning</h3>
-        <p>Summarize a course, book, or skill you're developing. Example: "Learning React and building accessible components."</p>
-      </article>
-
-      <article class="card">
-        <h3>Featured Project</h3>
-        <p>Short description and impact: what it does, technologies, and a result (e.g., "Reduced load time by 40%").</p>
-      </article>
-
-      <article class="card">
-        <h3>Favorite Tech / Hobby</h3>
-        <p>One paragraph about your favorite technology or hobby and why it matters to you.</p>
-      </article>
-    </section>
-
-    <!-- Latest projects preview -->
-    <section class="projects-preview container">
-      <h2>Selected Projects</h2>
-      <div class="grid">
-        <article class="project-card">
-          <h4>Project One</h4>
-          <p class="muted">Small one-line summary.</p>
-          <p>Short details that explain goals and outcome. Link to repo or demo on the projects page.</p>
-          <p><a class="link" href="projects.html#project-one">See details →</a></p>
-        </article>
-
-        <article class="project-card">
-          <h4>Project Two</h4>
-          <p class="muted">One-line summary.</p>
-          <p>Short details and tech stack used.</p>
-          <p><a class="link" href="projects.html#project-two">See details →</a></p>
-        </article>
-
-        <article class="project-card">
-          <h4>Project Three</h4>
-          <p class="muted">Short summary.</p>
-          <p>Impact or next steps.</p>
-          <p><a class="link" href="projects.html#project-three">See details →</a></p>
-        </article>
+      <div class="event">
+        <h3>💻 2024 — Building Real Projects</h3>
+        <p>
+          I applied what I learned by working on small projects — building websites, automating tasks, and experimenting with real-world datasets.
+        </p>
       </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="contact container">
-      <h2>Contact</h2>
-      <p>If you'd like to get in touch, email <a href="mailto:you@example.com">you@example.com</a> or use the form below (form is client-side only).</p>
-      <form id="contactForm" class="contact-form" onsubmit="handleForm(event)">
-        <label>
-          Name
-          <input type="text" name="name" required placeholder="Your name" />
-        </label>
-        <label>
-          Email
-          <input type="email" name="email" required placeholder="you@example.com" />
-        </label>
-        <label>
-          Message
-          <textarea name="message" rows="4" required placeholder="Tell me about your idea..."></textarea>
-        </label>
-        <div class="form-row">
-          <button class="btn" type="submit">Send</button>
-          <button class="btn ghost" type="reset">Reset</button>
-        </div>
-        <p id="formResult" aria-live="polite" class="muted"></p>
-      </form>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <p>© <span id="year"></span> [Your Name]. Built with ♥ — Hosted on GitHub Pages.</p>
-      <p>
-        <a href="https://github.com/">GitHub</a> •
-        <a href="projects.html">Projects</a> •
-        <a href="about.html">About</a>
-      </p>
+      <div class="event">
+        <h3>🚀 2025 — Expanding My Knowledge</h3>
+        <p>
+          This year, I’m deepening my understanding of advanced topics like business strategy, data-driven decision-making, and technology integration in organizations.
+        </p>
+      </div>
     </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills container">
+    <h2>Skills I’ve Gained</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Technical</h3>
+        <ul>
+          <li>HTML, CSS, JavaScript</li>
+          <li>Python for data analysis</li>
+          <li>Version control with Git & GitHub</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Professional</h3>
+        <ul>
+          <li>Project planning & time management</li>
+          <li>Analytical thinking</li>
+          <li>Effective communication</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Personal</h3>
+        <ul>
+          <li>Curiosity-driven learning</li>
+          <li>Consistency & discipline</li>
+          <li>Adaptability to new challenges</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Goals Section -->
+  <section class="container goals">
+    <h2>My Future Learning Goals</h2>
+    <ul class="goal-list">
+      <li>🎯 Learn advanced JavaScript and frameworks like React.</li>
+      <li>📊 Build stronger data visualization and analytics skills.</li>
+      <li>🤝 Collaborate on open-source or community projects.</li>
+      <li>💡 Continue developing problem-solving and leadership abilities.</li>
+    </ul>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact container" id="contact">
+    <h2>Get in Touch</h2>
+    <p>
+      Have advice, collaboration ideas, or learning resources to share?  
+      Feel free to contact me at <a href="mailto:you@example.com">you@example.com</a>.
+    </p>
+    <form onsubmit="handleForm(event)">
+      <input type="text" name="name" placeholder="Your name" required />
+      <input type="email" name="email" placeholder="Your email" required />
+      <textarea name="message" rows="4" placeholder="Your message..." required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+      <p id="formResult" class="muted"></p>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>© <span id="year"></span> [Your Name] — Built with HTML & CSS. Hosted on GitHub Pages.</p>
   </footer>
 
   <script>
-    // Small client-side behaviors: theme toggle, contact form stub, year
-    (function(){
-      document.getElementById('year').textContent = new Date().getFullYear();
+    // Dynamic Year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-      const themeToggle = document.getElementById('themeToggle');
-      themeToggle.addEventListener('click', () => {
-        document.documentElement.classList.toggle('dark');
-        themeToggle.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
-      });
+    // Theme toggle
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
 
-      window.handleForm = function handleForm(e) {
-        e.preventDefault();
-        const f = e.target;
-        const result = document.getElementById('formResult');
-        // demo-only: show the message and reset
-        result.textContent = `Thanks, ${f.name.value}! This demo form doesn't send emails—add backend or Formspree for real submissions.`;
-        f.reset();
-      };
-    })();
+    // Simple form feedback
+    function handleForm(e) {
+      e.preventDefault();
+      document.getElementById('formResult').textContent =
+        "Thanks! Your message has been received (demo only).";
+      e.target.reset();
+    }
   </script>
 </body>
 </html>
+
