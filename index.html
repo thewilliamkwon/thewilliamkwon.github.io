@@ -3,30 +3,445 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>William Kwon | My Learning Journey</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>William Kwon | Management Information Systems Professional</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #500000;
+      --primary-light: #7d0000;
+      --accent: #c69c6d;
+      --text: #1a1a1a;
+      --text-light: #4a4a4a;
+      --bg: #ffffff;
+      --bg-alt: #f8f9fa;
+      --border: #e0e0e0;
+      --shadow: rgba(0, 0, 0, 0.08);
+      --shadow-hover: rgba(0, 0, 0, 0.15);
+    }
+
+    body.dark {
+      --primary: #7d0000;
+      --primary-light: #a00000;
+      --accent: #d4af7a;
+      --text: #e8e8e8;
+      --text-light: #b0b0b0;
+      --bg: #0f0f0f;
+      --bg-alt: #1a1a1a;
+      --border: #2a2a2a;
+      --shadow: rgba(255, 255, 255, 0.05);
+      --shadow-hover: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    /* Header */
+    .site-header {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 8px var(--shadow);
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+    }
+
+    .theme-toggle {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 12px var(--shadow-hover);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      background: linear-gradient(135deg, var(--bg) 0%, var(--bg-alt) 100%);
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .accent {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero .subtitle {
+      font-size: 1.5rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+
+    .hero .lead {
+      font-size: 1.15rem;
+      color: var(--text-light);
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* Section Headers */
+    section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text);
+      position: relative;
+      display: inline-block;
+    }
+
+    section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    section > p {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: 3rem;
+      max-width: 800px;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--accent) 0%, var(--primary) 100%);
+      border-radius: 2px;
+    }
+
+    .event {
+      position: relative;
+      margin-bottom: 3rem;
+      padding-left: 2rem;
+      opacity: 0;
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .event:nth-child(1) { animation-delay: 0.1s; }
+    .event:nth-child(2) { animation-delay: 0.2s; }
+    .event:nth-child(3) { animation-delay: 0.3s; }
+    .event:nth-child(4) { animation-delay: 0.4s; }
+    .event:nth-child(5) { animation-delay: 0.5s; }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .event::before {
+      content: '';
+      position: absolute;
+      left: -2.5rem;
+      top: 0.5rem;
+      width: 16px;
+      height: 16px;
+      background: var(--accent);
+      border: 3px solid var(--bg);
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px var(--accent);
+    }
+
+    .event h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .event p {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .event strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Skills Grid */
+    .skills {
+      background: var(--bg-alt);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: var(--bg);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px var(--shadow-hover);
+      border-color: var(--accent);
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .card ul {
+      list-style: none;
+    }
+
+    .card li {
+      padding: 0.5rem 0;
+      color: var(--text-light);
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .card li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* Goals Section */
+    .goals {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: white;
+      border-radius: 16px;
+      margin: 4rem auto;
+    }
+
+    .goals h2 {
+      color: white;
+    }
+
+    .goals h2::after {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .goal-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .goal-list li {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1.5rem;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .goal-list li:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateX(5px);
+    }
+
+    /* Contact Section */
+    .contact {
+      text-align: center;
+      background: var(--bg-alt);
+      border-radius: 16px;
+      padding: 4rem 2rem;
+    }
+
+    .contact a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact a:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--primary);
+      color: white !important;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 2px solid var(--primary);
+    }
+
+    .social-btn:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px var(--shadow-hover);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-light);
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero .subtitle {
+        font-size: 1.25rem;
+      }
+
+      section h2 {
+        font-size: 2rem;
+      }
+
+      .container {
+        padding: 3rem 1.5rem;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline {
+        padding-left: 1.5rem;
+      }
+
+      .event {
+        padding-left: 1.5rem;
+      }
+    }
+
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
-    <div class="container header-grid">
-      <h1 class="logo">William Kwon — My Learning Journey</h1>
-      <button id="themeToggle" class="theme-toggle">🌙</button>
+    <div class="header-content">
+      <div class="logo">William Kwon</div>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
     </div>
   </header>
 
-  <section class="hero container">
-    <h2>Hello, I’m <span class="accent">William Kwon</span> 👋</h2>
+  <section class="hero">
+    <h1>Hello, I'm <span class="accent">William Kwon</span> 👋</h1>
+    <p class="subtitle">Management Information Systems Professional</p>
     <p class="lead">
-      I’m a Management Information Systems student at Texas A&M University
+      I'm a Management Information Systems student at Texas A&M University
       passionate about combining business strategy and technology.
-      This website highlights what I’ve learned through my coursework,
+      This website highlights what I've learned through my coursework,
       internships, and entrepreneurial projects.
     </p>
   </section>
 
   <!-- Learning Journey -->
   <section class="container journey">
-    <h2>How I’ve Learned and Grown</h2>
+    <h2>How I've Learned and Grown</h2>
     <p>
       My education and professional experiences have taught me how to bridge
       business insight with data-driven decision-making, and how to learn
@@ -70,7 +485,7 @@
         <h3>📊 Donovan & Co — Strategy Analyst (2025 – Present)</h3>
         <p>
           As a Strategy Analyst, I apply both my technical and business skills.
-          I’ve performed market analysis following Party City’s liquidation,
+          I've performed market analysis following Party City's liquidation,
           identified $1 MM in new retail demand, and helped raise $150 K in
           investor funding through strategic pitch materials. This role has
           strengthened my ability to analyze industries and craft data-backed
@@ -93,7 +508,7 @@
 
   <!-- Skills -->
   <section class="skills container">
-    <h2>Key Skills I’ve Developed</h2>
+    <h2>Key Skills I've Developed</h2>
     <div class="grid">
       <div class="card">
         <h3>Technical & Analytical</h3>
@@ -124,32 +539,47 @@
 
   <!-- Goals -->
   <section class="container goals">
-    <h2>What I’m Learning Next</h2>
+    <h2>What I'm Learning Next</h2>
     <ul class="goal-list">
-      <li>💡 Deepen technical skills in Python and data automation.</li>
-      <li>📈 Learn advanced financial modeling and valuation.</li>
-      <li>🌍 Explore AI applications in strategy and operations.</li>
-      <li>🤝 Mentor students interested in tech and entrepreneurship.</li>
+      <li>💡 Deepen technical skills in Python and data automation</li>
+      <li>📈 Learn advanced financial modeling and valuation</li>
+      <li>🌍 Explore AI applications in strategy and operations</li>
+      <li>🤝 Mentor students interested in tech and entrepreneurship</li>
     </ul>
   </section>
 
   <!-- Contact -->
-  <section class="contact container" id="contact">
-    <h2>Let’s Connect</h2>
+  <section class="contact container">
+    <h2>Let's Connect</h2>
     <p>
-      I’m always open to conversations about strategy, technology, and
-      entrepreneurship.  
-      Email me at <a href="mailto:wkwon0823@gmail.com">wkwon0823@gmail.com</a> or connect on 
-      <a href="https://linkedin.com/in/williamkwon0823/">LinkedIn</a>.
+      I'm always open to conversations about strategy, technology, and
+      entrepreneurship.
     </p>
+    <div class="social-links">
+      <a href="mailto:wkwon0823@gmail.com" class="social-btn">📧 Email Me</a>
+      <a href="https://linkedin.com/in/williamkwon0823/" class="social-btn" target="_blank" rel="noopener">💼 LinkedIn</a>
+    </div>
   </section>
+
+  <footer>
+    <p>&copy; <span id="year"></span> William Kwon. Built with passion for learning and growth.</p>
+  </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('themeToggle').addEventListener('click', () =>
-      document.body.classList.toggle('dark')
-    );
+    
+    const toggle = document.getElementById('themeToggle');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (prefersDark) {
+      document.body.classList.add('dark');
+      toggle.textContent = '☀️';
+    }
+    
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      toggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+    });
   </script>
 </body>
 </html>
-
