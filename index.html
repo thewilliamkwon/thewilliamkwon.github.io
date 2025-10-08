@@ -1,585 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>William Kwon | Management Information Systems Professional</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>William Kwon - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    :root {
-      --primary: #500000;
-      --primary-light: #7d0000;
-      --accent: #c69c6d;
-      --text: #1a1a1a;
-      --text-light: #4a4a4a;
-      --bg: #ffffff;
-      --bg-alt: #f8f9fa;
-      --border: #e0e0e0;
-      --shadow: rgba(0, 0, 0, 0.08);
-      --shadow-hover: rgba(0, 0, 0, 0.15);
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
 
-    body.dark {
-      --primary: #7d0000;
-      --primary-light: #a00000;
-      --accent: #d4af7a;
-      --text: #e8e8e8;
-      --text-light: #b0b0b0;
-      --bg: #0f0f0f;
-      --bg-alt: #1a1a1a;
-      --border: #2a2a2a;
-      --shadow: rgba(255, 255, 255, 0.05);
-      --shadow-hover: rgba(255, 255, 255, 0.1);
-    }
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      line-height: 1.6;
-      color: var(--text);
-      background: var(--bg);
-      transition: background 0.3s ease, color 0.3s ease;
-    }
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin-bottom: 20px;
+            object-fit: cover;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 48px;
+        }
 
-    /* Header */
-    .site-header {
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 8px var(--shadow);
-    }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
 
-    .header-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        .tagline {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
 
-    .logo {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--primary);
-      letter-spacing: -0.5px;
-    }
+        .contact-links {
+            margin-top: 20px;
+        }
 
-    .theme-toggle {
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-    }
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1em;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
 
-    .theme-toggle:hover {
-      transform: scale(1.1);
-      box-shadow: 0 4px 12px var(--shadow-hover);
-    }
+        .contact-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
 
-    /* Container */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 4rem 2rem;
-    }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-    /* Hero Section */
-    .hero {
-      text-align: center;
-      padding: 6rem 2rem 4rem;
-      background: linear-gradient(135deg, var(--bg) 0%, var(--bg-alt) 100%);
-    }
+        section {
+            background: white;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
-    .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      color: var(--text);
-      line-height: 1.2;
-    }
+        h2 {
+            color: #667eea;
+            margin-bottom: 25px;
+            font-size: 2em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
 
-    .accent {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
 
-    .hero .subtitle {
-      font-size: 1.5rem;
-      color: var(--text-light);
-      margin-bottom: 2rem;
-      font-weight: 500;
-    }
+        .education-header h3 {
+            color: #333;
+            font-size: 1.4em;
+        }
 
-    .hero .lead {
-      font-size: 1.15rem;
-      color: var(--text-light);
-      max-width: 800px;
-      margin: 0 auto;
-      line-height: 1.8;
-    }
+        .date {
+            color: #666;
+            font-style: italic;
+            white-space: nowrap;
+        }
 
-    /* Section Headers */
-    section h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: var(--text);
-      position: relative;
-      display: inline-block;
-    }
+        .degree {
+            font-size: 1.1em;
+            margin: 5px 0;
+        }
 
-    section h2::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      width: 60px;
-      height: 4px;
-      background: var(--accent);
-      border-radius: 2px;
-    }
+        .gpa {
+            color: #666;
+        }
 
-    section > p {
-      font-size: 1.1rem;
-      color: var(--text-light);
-      margin-bottom: 3rem;
-      max-width: 800px;
-    }
+        .experience-item, .project-item, .leadership-item {
+            margin-bottom: 35px;
+        }
 
-    /* Timeline */
-    .timeline {
-      position: relative;
-      padding-left: 2rem;
-    }
+        .experience-item:last-child, .project-item:last-child, .leadership-item:last-child {
+            margin-bottom: 0;
+        }
 
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: linear-gradient(180deg, var(--accent) 0%, var(--primary) 100%);
-      border-radius: 2px;
-    }
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
 
-    .event {
-      position: relative;
-      margin-bottom: 3rem;
-      padding-left: 2rem;
-      opacity: 0;
-      animation: fadeInUp 0.6s ease forwards;
-    }
+        h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+        }
 
-    .event:nth-child(1) { animation-delay: 0.1s; }
-    .event:nth-child(2) { animation-delay: 0.2s; }
-    .event:nth-child(3) { animation-delay: 0.3s; }
-    .event:nth-child(4) { animation-delay: 0.4s; }
-    .event:nth-child(5) { animation-delay: 0.5s; }
+        .company {
+            font-weight: normal;
+            color: #555;
+            font-size: 0.9em;
+        }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+        .role {
+            font-weight: 600;
+            color: #333;
+            margin: 5px 0;
+        }
 
-    .event::before {
-      content: '';
-      position: absolute;
-      left: -2.5rem;
-      top: 0.5rem;
-      width: 16px;
-      height: 16px;
-      background: var(--accent);
-      border: 3px solid var(--bg);
-      border-radius: 50%;
-      box-shadow: 0 0 0 3px var(--accent);
-    }
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
 
-    .event h3 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 0.75rem;
-    }
+        li {
+            margin-bottom: 8px;
+            color: #555;
+        }
 
-    .event p {
-      color: var(--text-light);
-      line-height: 1.7;
-    }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
 
-    .event strong {
-      color: var(--primary);
-      font-weight: 600;
-    }
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
 
-    /* Skills Grid */
-    .skills {
-      background: var(--bg-alt);
-    }
+        .skill-category h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
+        .skill-category p {
+            color: #555;
+            line-height: 1.8;
+        }
 
-    .card {
-      background: var(--bg);
-      padding: 2rem;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      box-shadow: 0 4px 12px var(--shadow);
-      transition: all 0.3s ease;
-    }
+        .interests {
+            color: #555;
+            line-height: 1.8;
+        }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 24px var(--shadow-hover);
-      border-color: var(--accent);
-    }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
 
-    .card h3 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
+        @media (max-width: 768px) {
+            header {
+                padding: 50px 20px;
+            }
 
-    .card ul {
-      list-style: none;
-    }
+            h1 {
+                font-size: 2em;
+            }
 
-    .card li {
-      padding: 0.5rem 0;
-      color: var(--text-light);
-      position: relative;
-      padding-left: 1.5rem;
-    }
+            section {
+                padding: 25px;
+            }
 
-    .card li::before {
-      content: '▸';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-weight: bold;
-    }
+            .exp-header, .education-header {
+                flex-direction: column;
+            }
 
-    /* Goals Section */
-    .goals {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-      color: white;
-      border-radius: 16px;
-      margin: 4rem auto;
-    }
+            .date {
+                margin-top: 5px;
+            }
 
-    .goals h2 {
-      color: white;
-    }
-
-    .goals h2::after {
-      background: rgba(255, 255, 255, 0.5);
-    }
-
-    .goal-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .goal-list li {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 1.5rem;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      transition: all 0.3s ease;
-    }
-
-    .goal-list li:hover {
-      background: rgba(255, 255, 255, 0.15);
-      transform: translateX(5px);
-    }
-
-    /* Contact Section */
-    .contact {
-      text-align: center;
-      background: var(--bg-alt);
-      border-radius: 16px;
-      padding: 4rem 2rem;
-    }
-
-    .contact a {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 600;
-      border-bottom: 2px solid transparent;
-      transition: border-color 0.3s ease;
-    }
-
-    .contact a:hover {
-      border-bottom-color: var(--accent);
-    }
-
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .social-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      background: var(--primary);
-      color: white !important;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      border: 2px solid var(--primary);
-    }
-
-    .social-btn:hover {
-      background: var(--primary-light);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px var(--shadow-hover);
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: var(--text-light);
-      border-top: 1px solid var(--border);
-      font-size: 0.9rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-
-      .hero .subtitle {
-        font-size: 1.25rem;
-      }
-
-      section h2 {
-        font-size: 2rem;
-      }
-
-      .container {
-        padding: 3rem 1.5rem;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .timeline {
-        padding-left: 1.5rem;
-      }
-
-      .event {
-        padding-left: 1.5rem;
-      }
-    }
-
-    /* Smooth scroll */
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
+            .contact-links a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-content">
-      <div class="logo">William Kwon</div>
-      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    <header>
+     <img src=https://lh3.googleusercontent.com/gg-dl/AJfQ9KSlInAg9Cr2yIL5GiS28kmlEe4YNZ2LcM3kNNHfZRdPaitQC6InG2BtW2H1c8YNKHVpxbfbJvnVHRzQyyMwdiPVpsbYNoIF6rHHariAGgrTHLMxCvMjJLz8YjretmZq0HZrgmMy38sZVsxhulluOIZ-pr7SKsp72uP4186wnIL3PzB4fQ=rj alt="William Kwon" class="profile-img">
+        <h1>William Kwon</h1>
+        <p class="tagline">Strategy Analyst | Business Development | MIS Student</p>
+        <div class="contact-links">
+            <a href="mailto:wkwon0823@gmail.com">wkwon0823@gmail.com</a>
+            <a href="tel:832-714-0299">832-714-0299</a>
+            <a href="https://linkedin.com/in/williamkwon0823/" target="_blank">LinkedIn</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I'm a driven Business Administration student at Texas A&M University's Mays Business School, specializing in Management Information Systems. With experience in strategy analysis, business development, and digital marketing, I'm passionate about leveraging data-driven insights to solve complex business challenges and drive growth.</p>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-header">
+                <div>
+                    <h3>Texas A&M University</h3>
+                    <p class="degree">Bachelor of Business Administration in Management Information Systems</p>
+                    <p class="gpa">Mays Business School | Cumulative GPA: 3.6/4.00</p>
+                </div>
+                <span class="date">Expected Graduation: May 2027</span>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div>
+                        <h3>Strategy Analyst</h3>
+                        <p class="company">Donovan & Co | Houston, Texas</p>
+                    </div>
+                    <span class="date">August 2025 - Present</span>
+                </div>
+                <ul>
+                    <li>Performed a strategic market analysis following Party City's liquidation, identifying $1MM+ in balloon-specific retail demand in Greater Houston and prioritizing former high-performing locations</li>
+                    <li>Developed internal strategy briefs and competitive benchmarking reports, providing actionable insights on cost structure, unit economics, and scalability across multiple sectors</li>
+                    <li>Strategized $150,000 of funding from investors by creating tailored pitch slide decks, synthesizing business models, facility specifications, and strategies into visually compelling presentations for company pitches</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div>
+                        <h3>Business Development Intern</h3>
+                        <p class="company">Netshares | Houston, Texas</p>
+                    </div>
+                    <span class="date">May 2025 - July 2025</span>
+                </div>
+                <ul>
+                    <li>Analyzed digital outreach campaigns and provided insights to conversion rates across company website, SEO, and landing pages, improving outbound targeting efficiency and lead quality by 30%</li>
+                    <li>Contributed to the redesign of sales funnels and CRM workflows to streamline advisor and client onboarding processes</li>
+                    <li>Formulated a company backgrounder that effectively communicated value proposition and mission, leading to active partnership discussions with high-net-worth clients seeking strategic investment opportunities</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div>
+                        <h3>Business Analyst Intern</h3>
+                        <p class="company">JBCF Business Solutions | Bainbridge, Georgia</p>
+                    </div>
+                    <span class="date">January 2025 - May 2025</span>
+                </div>
+                <ul>
+                    <li>Conducted market trend analysis and competitive benchmarking to identify financial opportunities and risks, informing client recommendations for resource allocation and ROI maximization</li>
+                    <li>Collaborated on the development of financial models and strategic plans to enhance profitability and align with client financial goals</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            
+            <div class="project-item">
+                <div class="exp-header">
+                    <div>
+                        <h3>Balloon Inflation Station</h3>
+                        <p class="company">Consumer Retail - Head of Marketing</p>
+                    </div>
+                    <span class="date">August 2025</span>
+                </div>
+                <ul>
+                    <li>Built and managed digital infrastructure to support scalable ordering, delivery tracking, and customer experience, integrating online with offline logistics execution</li>
+                    <li>Orchestrated the development of multi-channel inbound marketing campaigns (Instagram, Meta Ads, SEO, and email) that drove over 1,200 weekly impressions and 15–20% conversion rates within the first 90 days of launch</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="exp-header">
+                    <div>
+                        <h3>All-Star Franchise</h3>
+                        <p class="company">Franchise Consulting - Strategy and Operations</p>
+                    </div>
+                    <span class="date">July 2025</span>
+                </div>
+                <ul>
+                    <li>Led internal operational improvements including CRM development, onboarding workflows, and client tracking systems, enhancing franchisee experience and increasing conversion efficiency</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="leadership">
+            <h2>Leadership & Involvement</h2>
+            
+            <div class="leadership-item">
+                <div class="exp-header">
+                    <div>
+                        <h3>Finance Officer</h3>
+                        <p class="company">Association of Information Technology Professionals | College Station, Texas</p>
+                    </div>
+                    <span class="date">January 2025 – Present</span>
+                </div>
+                <ul>
+                    <li>Oversaw financial planning and budget management, allocating funds for programs attended by 30+ participants</li>
+                    <li>Facilitated student involvement in company informationals, networking events, and workshops related to information technology</li>
+                </ul>
+            </div>
+
+            <div class="leadership-item">
+                <div class="exp-header">
+                    <div>
+                        <h3>Professional Development Officer</h3>
+                        <p class="company">Asian Business Society | College Station, Texas</p>
+                    </div>
+                    <span class="date">August 2024 – Present</span>
+                </div>
+                <ul>
+                    <li>Coordinated professional development events featuring guest speakers from diverse business sectors, fostering career readiness among student members</li>
+                    <li>Enhanced project outcomes and teamwork for 50+ members by improving presentation and leadership skills in meetings</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills & Certifications</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Technical Skills</h4>
+                    <p>Microsoft Office Suite (Excel, PowerPoint), SQL, Tableau, Workflow Automation, CRM Management</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Certifications</h4>
+                    <p>Google Data Analytics<br>Google Project Management</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Interests</h4>
+                    <p>Houston Rockets Basketball, Golfing, Weightlifting, Reading, Content Creation</p>
+                </div>
+            </div>
+        </section>
     </div>
-  </header>
 
-  <section class="hero">
-    <h1>Hello, I'm <span class="accent">William Kwon</span></h1>
-    <p class="subtitle">Management Information Systems Professional</p>
-    <p class="lead">
-      I'm a Management Information Systems student at Texas A&M University
-      passionate about combining business strategy and technology.
-      This website highlights what I've learned through my coursework,
-      internships, and entrepreneurial projects.
-    </p>
-  </section>
-
-  <!-- Learning Journey -->
-  <section class="container journey">
-    <h2>How I've Learned and Grown</h2>
-    <p>
-      My education and professional experiences have taught me how to bridge
-      business insight with data-driven decision-making, and how to learn
-      quickly in fast-moving environments.
-    </p>
-
-    <div class="timeline">
-      <div class="event">
-        <h3>Texas A&M University (2023 – Present)</h3>
-        <p>
-          Studying <strong>Management Information Systems</strong> at Mays
-          Business School has helped me master data analytics, workflow
-          automation, and project management fundamentals. Courses in database
-          management, business analysis, and systems design built my technical
-          foundation and curiosity for technology-driven strategy.
-        </p>
-      </div>
-
-      <div class="event">
-        <h3>JBCF Business Solutions — Business Analyst Intern (2025)</h3>
-        <p>
-          I learned how to transform data into actionable financial insights.
-          Conducting market trend analysis and building financial models
-          improved my understanding of ROI, resource allocation, and strategic
-          recommendations for clients.
-        </p>
-      </div>
-
-      <div class="event">
-        <h3>Netshares — Business Development Intern (2025)</h3>
-        <p>
-          At Netshares, I deepened my skills in <strong>digital analytics</strong>
-          and <strong>CRM optimization</strong>. By analyzing website and SEO
-          performance, I helped increase lead-conversion efficiency by 30%.
-          I also learned how marketing and data work together to grow client
-          pipelines.
-        </p>
-      </div>
-
-      <div class="event">
-        <h3>Donovan & Co — Strategy Analyst (2025 – Present)</h3>
-        <p>
-          As a Strategy Analyst, I apply both my technical and business skills.
-          I've performed market analysis following Party City's liquidation,
-          identified $1 MM in new retail demand, and helped raise $150 K in
-          investor funding through strategic pitch materials. This role has
-          strengthened my ability to analyze industries and craft data-backed
-          growth strategies.
-        </p>
-      </div>
-
-      <div class="event">
-        <h3>Entrepreneurial Projects (2025)</h3>
-        <p>
-          I co-founded <strong>Balloon Inflation Station</strong>, where I led
-          marketing strategy and digital operations, reaching over 1,200 weekly
-          impressions. I also contributed to <strong>All-Star Franchise</strong>
-          by improving CRM systems and onboarding workflows—hands-on lessons in
-          scalability and customer experience.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section class="skills container">
-    <h2>Key Skills I've Developed</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Technical & Analytical</h3>
-        <ul>
-          <li>SQL & Tableau for data visualization</li>
-          <li>CRM management and workflow automation</li>
-          <li>Microsoft Excel modeling and dashboarding</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Business Strategy & Operations</h3>
-        <ul>
-          <li>Market analysis and competitive benchmarking</li>
-          <li>Pitch deck and financial model development</li>
-          <li>Process optimization and system design</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Professional Growth</h3>
-        <ul>
-          <li>Leadership through student organizations</li>
-          <li>Project management (Google Certified)</li>
-          <li>Collaboration and presentation skills</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Goals -->
-  <section class="container goals">
-    <h2>What I'm Learning Next</h2>
-    <ul class="goal-list">
-      <li>Deepen technical skills in coding and data automation</li>
-      <li>Learn advanced financial modeling and valuation</li>
-      <li>Explore AI applications in strategy and operations</li>
-      <li>Mentor students interested in tech and entrepreneurship</li>
-    </ul>
-  </section>
-
-  <!-- Contact -->
-  <section class="contact container">
-    <h2>Let's Connect</h2>
-    <p>
-      I'm always open to conversations about strategy, technology, and
-      data.
-    </p>
-    <div class="social-links">
-      <a href="mailto:wkwon0823@gmail.com" class="social-btn">Email Me</a>
-      <a href="https://linkedin.com/in/williamkwon0823/" class="social-btn" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; <span id="year"></span> William Kwon. Built with passion for learning and growth.</p>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    
-    const toggle = document.getElementById('themeToggle');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (prefersDark) {
-      document.body.classList.add('dark');
-      toggle.textContent = '☀️';
-    }
-    
-    toggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-      toggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
-    });
-  </script>
+    <footer>
+        <p>&copy; 2025 William Kwon. All rights reserved.</p>
+    </footer>
 </body>
 </html>
